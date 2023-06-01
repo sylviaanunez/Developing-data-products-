@@ -1,5 +1,6 @@
 ---
-title: "shiny app and reproducible research pitch"
+title: "Shiny app and Reproducible Research 
+  Pitch"
 author: "Sylvia Nunez"
 date: "`r Sys.Date()`"
 output: 
@@ -56,5 +57,3 @@ renderPlot({
 summary(cars)
 ```
 ## Thanks 
-
-
