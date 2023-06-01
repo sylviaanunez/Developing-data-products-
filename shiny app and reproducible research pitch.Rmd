@@ -1,0 +1,57 @@
+---
+title: "shiny app and reproducible research pitch"
+author: "Sylvia Nunez"
+date: "`r Sys.Date()`"
+output: ioslides_presentation
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Shiny Presentation
+Instructions:
+Your Reproducible Pitch Presentation
+OK, you've made your shiny app, now it's time to make your pitch. You get 5 slides (inclusive of the title slide)  to pitch a your app. You're going to create a web page using Slidify or Rstudio Presenter with an html5 slide deck.
+Here's what you need
+5 slides to pitch our idea done in Slidify or Rstudio Presenter
+Your presentation pushed to github or Rpubs
+A link to your github or Rpubs presentation pasted into the provided text box
+Your presentation must satisfy the following
+It must be done in Slidify or Rstudio Presenter
+It must be 5 pages
+It must be hosted on github or Rpubs
+It must contained some embedded R code that gets run when slidifying the document
+
+
+
+
+## Interactive Plot
+
+```{r eruptions}
+inputPanel(
+  selectInput("n_breaks", label = "Number of bins:",
+              choices = c(10, 20, 35, 50), selected = 20),
+  
+  sliderInput("bw_adjust", label = "Bandwidth adjustment:",
+              min = 0.2, max = 2, value = 1, step = 0.2)
+)
+
+renderPlot({
+  hist(faithful$eruptions, probability = TRUE, breaks = as.numeric(input$n_breaks),
+       xlab = "Duration (minutes)", main = "Geyser eruption duration")
+  
+  dens <- density(faithful$eruptions, adjust = input$bw_adjust)
+  lines(dens, col = "orange")
+})
+```
+
+
+## R Output
+
+```{r cars}
+summary(cars)
+```
+## Thanks 
+
